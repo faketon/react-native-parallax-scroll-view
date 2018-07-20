@@ -26,6 +26,7 @@ const interpolate = (value, opts) => {
 
 // Properties accepted by `ParallaxScrollView`.
 const IPropTypes = {
+	bgColor:string,
 	backgroundColor: string,
 	backgroundScrollSpeed: number,
 	fadeOutForeground: bool,
@@ -127,7 +128,7 @@ class ParallaxScrollView extends Component {
 		const scrollElement = renderScrollComponent(scrollViewProps)
 		return (
 			<View
-				style={[style, styles.container]}
+				style={[style, styles.container,{backgroundColor:this.props.bgColor ? this.props.bgColor : "transparent" }]}
 				onLayout={e => this._maybeUpdateViewDimensions(e)}
 			>
 				{background}
